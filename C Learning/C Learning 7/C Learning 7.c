@@ -1,7 +1,8 @@
 #define _CRT_SECURE_NO_WARNINGS
-
 #include <stdio.h>
+#include <ctype.h>
 
+// *** Chpater 7_2 ***
 /*
      1. Introduction of getchar() and putchar()
      2. Using while loop to process character sequence
@@ -10,8 +11,8 @@
      5. Lower characters to Upper characters
 */
 
-int main()
-{
+//int main()
+//{
     /*char ch;
     ch = getchar();
     putchar(ch);*/
@@ -105,25 +106,47 @@ int main()
 
     //}
 
+//    char ch;
+//
+//    while ((ch = getchar()) != '\n')
+//    {
+//        if (ch >= '0' && ch <= '9')
+//        {
+//            ch = '&';
+//        }
+//
+//        putchar(ch);
+//
+//    }
+//    return 0;
+//}
+//
+
+
+
+
+
+//  *** Chapeter 7_3 About Ctype.h     
+   
+int main()
+{
     char ch;
 
     while ((ch = getchar()) != '\n')
     {
-        if (ch >= '0' && ch <= '9')
-        {
-            ch = '&';
-        }
-
+        if (islower(ch))
+            ch = toupper(ch);
+        else if (isupper(ch))
+            ch = tolower(ch);
         putchar(ch);
-
     }
-
-    if (true)
-    {
-
-    }
-
-
     return 0;
 }
+       
+
+
+
+
+
+    
 
