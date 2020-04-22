@@ -149,99 +149,122 @@
 //  * Chapeter 7_4  Else If    
 // TAX calculation
 
-#define BASE1  12000000.0
-#define BASE2  46000000.0
-#define BASE3  88000000.0
-#define BASE4 150000000.0
-#define BASE5 300000000.0
-#define BASE6 500000000.0
+//#define BASE1  12000000.0
+//#define BASE2  46000000.0
+//#define BASE3  88000000.0
+//#define BASE4 150000000.0
+//#define BASE5 300000000.0
+//#define BASE6 500000000.0
+//
+//#define RATE1 (6.0/100.0)
+//#define RATE2 (15.0/100.0)
+//#define RATE3 (24.0/100.0)
+//#define RATE4 (35.0/100.0)
+//#define RATE5 (38.0/100.0)
+//#define RATE6 (40.0/100.0)
+//#define RATE7 (42.0/100.0)
+//
+//#define BASIC_DEDUCTION 1500000
+//
+//int main()
+//{
+//    double income = 0.0;
+//    double CIT = 0.0;
+//
+//    printf("Please input your income:");
+//
+//    while (scanf("%lf", &income) == 1)
+//    {
+//        income -= BASIC_DEDUCTION;
+//
+//        if (income < BASE1)
+//        {
+//            CIT = income * RATE1;
+//        }
+//
+//        else if (income <= BASE2) // BASE1 < income <= BASE2 is not needed
+//        {
+//            CIT = BASE1 * RATE1;
+//            CIT += (income - BASE1) * RATE2;
+//        }
+//
+//        else if (income <= BASE3)
+//        {
+//            CIT = BASE1 * RATE1;
+//            CIT += (BASE2 - BASE1) * RATE2;
+//            CIT += (income - BASE2) * RATE3;
+//        }
+//
+//
+//        else if (income <= BASE4)
+//        {
+//            CIT = BASE1 * RATE1;
+//            CIT += (BASE2 - BASE1) * RATE2;
+//            CIT += (BASE3 - BASE2) * RATE3;
+//            CIT += (income - BASE3) * RATE4;
+//        }
+//
+//        else if (income <= BASE5)
+//        {
+//            CIT = BASE1 * RATE1;
+//            CIT += (BASE2 - BASE1) * RATE2;
+//            CIT += (BASE3 - BASE2) * RATE3;
+//            CIT += (BASE4 - BASE3) * RATE4;
+//            CIT += (income - BASE4) * RATE5;
+//        }
+//
+//        else if (income <= BASE6)
+//        {
+//            CIT = BASE1 * RATE1;
+//            CIT += (BASE2 - BASE1) * RATE2;
+//            CIT += (BASE3 - BASE2) * RATE3;
+//            CIT += (BASE4 - BASE3) * RATE4;
+//            CIT += (BASE5 - BASE4) * RATE5;
+//            CIT += (income - BASE5) * RATE6;
+//        }
+//
+//
+//        else if (income > BASE6)
+//        {
+//            CIT = BASE1 * RATE1;
+//            CIT += (BASE2 - BASE1) * RATE2;
+//            CIT += (BASE3 - BASE2) * RATE3;
+//            CIT += (BASE4 - BASE3) * RATE4;
+//            CIT += (BASE5 - BASE4) * RATE5;
+//            CIT += (BASE6 - BASE5) * RATE6;
+//            CIT += (income - BASE6) * RATE7;
+//        }
+//
+//        printf(" Your comprehensive income tax is %lf\n", CIT);
+//
+//        printf("Please input your income:");
+//    }  
+//
+//    return 0;
+//}
 
-#define RATE1 (6.0/100.0)
-#define RATE2 (15.0/100.0)
-#define RATE3 (24.0/100.0)
-#define RATE4 (35.0/100.0)
-#define RATE5 (38.0/100.0)
-#define RATE6 (40.0/100.0)
-#define RATE7 (42.0/100.0)
-
-#define BASIC_DEDUCTION 1500000
+    
+//  * Chapter 7_5 Else와 if 짝짓기
 
 int main()
 {
-    double income = 0.0;
-    double CIT = 0.0;
+    int number;
+    scanf("%d", &number);
 
-    printf("Please input your income:");
-
-    while (scanf("%lf", &income) == 1)
+    if (number > 5)
     {
-        income -= BASIC_DEDUCTION;
-
-        if (income < BASE1)
+        if (number < 10)
         {
-            CIT = income * RATE1;
+            printf("Larger than 5 smaller than10\n");
         }
-
-        else if (income <= BASE2) // BASE1 < income <= BASE2 is not needed
-        {
-            CIT = BASE1 * RATE1;
-            CIT += (income - BASE1) * RATE2;
-        }
-
-        else if (income <= BASE3)
-        {
-            CIT = BASE1 * RATE1;
-            CIT += (BASE2 - BASE1) * RATE2;
-            CIT += (income - BASE2) * RATE3;
-        }
-
-
-        else if (income <= BASE4)
-        {
-            CIT = BASE1 * RATE1;
-            CIT += (BASE2 - BASE1) * RATE2;
-            CIT += (BASE3 - BASE2) * RATE3;
-            CIT += (income - BASE3) * RATE4;
-        }
-
-        else if (income <= BASE5)
-        {
-            CIT = BASE1 * RATE1;
-            CIT += (BASE2 - BASE1) * RATE2;
-            CIT += (BASE3 - BASE2) * RATE3;
-            CIT += (BASE4 - BASE3) * RATE4;
-            CIT += (income - BASE4) * RATE5;
-        }
-
-        else if (income <= BASE6)
-        {
-            CIT = BASE1 * RATE1;
-            CIT += (BASE2 - BASE1) * RATE2;
-            CIT += (BASE3 - BASE2) * RATE3;
-            CIT += (BASE4 - BASE3) * RATE4;
-            CIT += (BASE5 - BASE4) * RATE5;
-            CIT += (income - BASE5) * RATE6;
-        }
-
-
-        else if (income > BASE6)
-        {
-            CIT = BASE1 * RATE1;
-            CIT += (BASE2 - BASE1) * RATE2;
-            CIT += (BASE3 - BASE2) * RATE3;
-            CIT += (BASE4 - BASE3) * RATE4;
-            CIT += (BASE5 - BASE4) * RATE5;
-            CIT += (BASE6 - BASE5) * RATE6;
-            CIT += (income - BASE6) * RATE7;
-        }
-
-        printf(" Your comprehensive income tax is %lf\n", CIT);
-
-        printf("Please input your income:");
-    }  
+        else // else는 가까이 있는 if에 붙는 특성이 있다
+            printf("Lager than 10\n");
+    }
+    else
+    {
+        printf("Smaller than 5\n");
+    }
 
     return 0;
 }
-
-    
-
+   
