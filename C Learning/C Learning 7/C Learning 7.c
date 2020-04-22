@@ -1,6 +1,7 @@
 #define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
 #include <ctype.h>
+#include <stdbool.h>
 
 // *** Chpater 7_2 ***
 /*
@@ -246,25 +247,104 @@
     
 //  * Chapter 7_5 Else와 if 짝짓기
 
+//int main()
+//{
+//    int number;
+//    scanf("%d", &number);
+//
+//    if (number > 5)
+//    {
+//        if (number < 10)
+//        {
+//            printf("Larger than 5 smaller than10\n");
+//        }
+//        else // else는 가까이 있는 if에 붙는 특성이 있다
+//            printf("Lager than 10\n");
+//    }
+//    else
+//    {
+//        printf("Smaller than 5\n");
+//    }
+//
+//    return 0;
+//}
+
+
+// * Chapter 7_6 소수판단예제
+
+// 내가 한 코딩
+//int main()
+//{
+//    unsigned num = 0;
+//    int isPrime = 0; // flag, try bool type
+//
+//    printf("숫자를 입력해 주세요:");
+//
+//    while (scanf("%u", &num) == 1)
+//    {
+//        if (num <= 2)
+//        {
+//            printf("%u is a prime number\n", num);
+//        }
+//
+//        else
+//        {
+//            for (int i = 2; i < num; ++i)
+//            {
+//                isPrime = num % i;
+//
+//                if (isPrime == 0)
+//                {
+//                    printf("%u is not a prime number\n", num);
+//                }
+//                else
+//                {
+//                    printf("%u is a prime number\n", num);
+//                }
+//            }           
+//        }
+//        printf("숫자를 입력해 주세요:");
+//    }               
+//    return 0;
+//}
+
+// 강의 코드 스타일
 int main()
 {
-    int number;
-    scanf("%d", &number);
+    unsigned num,i;
+    bool isPrime = true; 
 
-    if (number > 5)
+    printf("숫자를 입력해 주세요:");
+
+    while (scanf("%u", &num) == 1)
     {
-        if (number < 10)
+        if (num <= 2)
         {
-            printf("Larger than 5 smaller than10\n");
+            printf("%u is a prime number\n", num);
         }
-        else // else는 가까이 있는 if에 붙는 특성이 있다
-            printf("Lager than 10\n");
-    }
-    else
-    {
-        printf("Smaller than 5\n");
-    }
 
+        else
+        {
+            for ( i = 2; (i*i) <= num; ++i)
+            {
+                if (num % i == 0)
+                {
+                    isPrime = false;
+
+                    if (num == i * i)
+                        printf("%u is divisible by %u.\n", num, i);
+                    else
+                        printf("%u is divisible by %u and %u.\n", num, i, num/i);
+                }
+            }
+
+            if (isPrime)
+                printf("%u is a prime number.\n", num);
+            else
+                printf("%u is not a prime number.\n", num);
+        } 
+
+        printf("숫자를 입력해 주세요:");
+    }
     return 0;
 }
-   
