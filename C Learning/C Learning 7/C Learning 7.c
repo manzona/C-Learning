@@ -309,42 +309,73 @@
 //}
 
 // 강의 코드 스타일
+//int main()
+//{
+//    unsigned num,i;
+//    bool isPrime = true; 
+//
+//    printf("숫자를 입력해 주세요:");
+//
+//    while (scanf("%u", &num) == 1)
+//    {
+//        if (num <= 2)
+//        {
+//            printf("%u is a prime number\n", num);
+//        }
+//
+//        else
+//        {
+//            for ( i = 2; (i*i) <= num; ++i)
+//            {
+//                if (num % i == 0)
+//                {
+//                    isPrime = false;
+//
+//                    if (num == i * i)
+//                        printf("%u is divisible by %u.\n", num, i);
+//                    else
+//                        printf("%u is divisible by %u and %u.\n", num, i, num/i);
+//                }
+//            }
+//
+//            if (isPrime)
+//                printf("%u is a prime number.\n", num);
+//            else
+//                printf("%u is not a prime number.\n", num);
+//        } 
+//
+//        printf("숫자를 입력해 주세요:");
+//    }
+//    return 0;
+//}
+
+// * Chapter 7_9 Conditional operator
+
+//int main()
+//{
+//    int number;
+//    scanf("%d", &number);
+//
+//    const bool is_even = ((number % 2) == 0) ? true : false;
+//
+//    if (is_even)
+//        printf("Even\n");
+//    else
+//        printf("Odd\n");
+//
+//    return 0;
+//}
+
+// 반복 루프의 좋은 예
 int main()
 {
-    unsigned num,i;
-    bool isPrime = true; 
-
-    printf("숫자를 입력해 주세요:");
-
-    while (scanf("%u", &num) == 1)
+    while (1)
     {
-        if (num <= 2)
-        {
-            printf("%u is a prime number\n", num);
-        }
+        char c = getchar();
 
-        else
-        {
-            for ( i = 2; (i*i) <= num; ++i)
-            {
-                if (num % i == 0)
-                {
-                    isPrime = false;
-
-                    if (num == i * i)
-                        printf("%u is divisible by %u.\n", num, i);
-                    else
-                        printf("%u is divisible by %u and %u.\n", num, i, num/i);
-                }
-            }
-
-            if (isPrime)
-                printf("%u is a prime number.\n", num);
-            else
-                printf("%u is not a prime number.\n", num);
-        } 
-
-        printf("숫자를 입력해 주세요:");
+        if (c == '.')
+            break;
+        putchar(c);
     }
     return 0;
 }
