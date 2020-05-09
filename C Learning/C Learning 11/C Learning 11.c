@@ -1,5 +1,6 @@
 #define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
+#include <stdlib.h>
 
 // * Chapter 11.1 문자열을 정의하는 방법
 #define MESSAGE "A symbolic string sting constant"
@@ -52,5 +53,64 @@ int main()
 	if (*(truth + 1) == truth[1]) puts("true!");
 	if (truth[1] == 'r') puts("true!");
 	
+	return 0;
+}
+
+ Chapter 11.2 메모리 레이아웃과 문자열
+
+void test_function()
+{
+	int j;
+	printf("stack high \t%llu", (unsigned long long) & j);
+}
+
+int main()
+{
+	/* Arry versus Pointer*/
+	const char* pt2 = " I am a string!.";
+	const char* pt3 = " I am a string!.";
+	const char* pt4 = " I am a string!!!!!!.";
+	const char ar1[] = " I am a string!.";
+	const char ar2[] = " I am a string!.";
+	const char ar3[] = " I am a string!!.";
+
+	printf("rodata low \t%llu %llu %llu %llu\n",
+		(unsigned long long)pt2, (unsigned long long)pt3, (unsigned long long)pt4,
+		(unsigned long long)"I am a string!.");
+	printf("stack high \t%llu %llu %llu\n",
+		(unsigned long long)ar1, (unsigned long long)ar2, (unsigned long long)ar3);
+
+	return 0;
+}
+
+#define STRLEN 81
+
+//char* custom_string_input(char* st, int n);
+
+int main()
+{
+	/* Creating Space First*/
+
+	//// char* name = "";// Error
+	//char name[128];
+	//int result = scanf("%s", name);
+
+
+	/* gets, gets_s, puts 함수*/
+	//char words[STRLEN] = "";
+	//gets(words);
+	//printf("START\n");
+	//printf("%s", words);
+	//puts(words); //자동줄바꿈 가능
+	//puts("END.");
+
+	/* fgets, fputs 함수*/
+
+	char words[STRLEN] = "";
+	fgets(words, STRLEN, stdin);// stdin 으로 consol 입력을 받는다
+
+	fputs(words, stdout);// \n을 출력하지 않는다
+	fputs("END", stdout);
+
 	return 0;
 }
