@@ -1,8 +1,11 @@
 #define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
-#include <stdlib.h>
+#include <stdlib.h> // malloc(), free()
+#include <string.h>//strlen(), strcmp()
+#include <conio.h>
 
-//// * Chapter 12.4
+
+//// * Chapter 14.4
 //#define MAX_TITLE 40
 //#define MAX_AUTHOR 40
 //#define MAX_BOOKS 3
@@ -79,40 +82,78 @@
 
 
 
-// * Chapter 14.6
+//// * Chapter 14.6
+//
+//#define LEN 20
+//
+//struct names
+//{
+//	char given[LEN];
+//	char family[LEN];
+//};
+//
+//struct friend
+//{
+//	struct names full_name;
+//	char mobile[LEN];
+//};
+//
+//int main(void)
+//{
+//	struct friend my_friends[2] =
+//	{
+//		{{"Ariana", "Grande"}, "1234-1234" },
+//		{{ "Taylor", "Swift" }, "6550-8888"},
+//	};
+//
+//	struct friend* girl_friend;
+//
+//	girl_friend = &my_friends[0];
+//
+//	printf("%zd\n", sizeof(struct friend));
+//	printf("%lld %s\n", (long long)girl_friend, girl_friend->full_name.given);
+//	// -> indirect memeber access operator
+//	girl_friend++;
+//
+//	printf("%lld %s\n", (long long)girl_friend, (*girl_friend).full_name.given);
+//
+//	return 0;
+//}
 
-#define LEN 20
-
-struct names
-{
-	char given[LEN];
-	char family[LEN];
-};
-
-struct friend
-{
-	struct names full_name;
-	char mobile[LEN];
-};
-
-int main(void)
-{
-	struct friend my_friends[2] =
-	{
-		{{"Ariana", "Grande"}, "1234-1234" },
-		{{ "Taylor", "Swift" }, "6550-8888"},
-	};
-
-	struct friend* girl_friend;
-
-	girl_friend = &my_friends[0];
-
-	printf("%zd\n", sizeof(struct friend));
-	printf("%lld %s\n", (long long)girl_friend, girl_friend->full_name.given);
-	// -> indirect memeber access operator
-	girl_friend++;
-
-	printf("%lld %s\n", (long long)girl_friend, (*girl_friend).full_name.given);
-
-	return 0;
-}
+//// * Chapter 14.7
+//#define FUNDLEN 50
+//
+//struct fortune
+//{
+//	char	bank_name[FUNDLEN];
+//	double	bank_saving;
+//	char	fund_name[FUNDLEN];
+//	double	fund_invest;
+//};
+//
+////double sum(double* x, double* y);
+//double sum(struct fortune my_fortune);
+//
+//int main()
+//{
+//	struct fortune my_fortune =
+//	{
+//		"Wells-Fargo", 4032.27,
+//		"JPMorgan Chase", 8543.94
+//	};
+//
+//	printf("Total : $%.2f\n",
+//		//sum(&my_fortune.bank_saving, &my_fortune.fund_invest));
+//		sum(my_fortune));
+//	
+//	//struct fortune my_fortuen2;
+//	//my_fortuen2 = my_fortune// 대입이 된다
+//
+//	return 0;
+//}
+//
+////double sum(double* x, double* y)
+//double sum(struct fortune my_fortune)// 함수의 Parameter에 복사를 하게된다
+//{
+//	return my_fortune.bank_saving + my_fortune.fund_invest;
+//}
